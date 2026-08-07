@@ -4,85 +4,562 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SSTP Terengganu</title>
-    <meta name="description" content="Laman rasmi SSTP Terengganu.">
+    <meta name="description" content="Hab rasmi SSTP Terengganu untuk portal, hebahan, program dan pautan perkhidmatan digital.">
+    <meta property="og:title" content="SSTP Terengganu">
+    <meta property="og:description" content="Hab rasmi SSTP Terengganu untuk portal, hebahan, program dan pautan perkhidmatan digital.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/hero-sstp-terengganu.png">
     <style>
       :root {
         color-scheme: light;
+        --ink: #132238;
+        --muted: #56657a;
+        --line: #dce5ee;
+        --paper: #ffffff;
+        --mist: #f4f8fb;
+        --navy: #0b3155;
+        --teal: #0f8f8a;
+        --green: #3f9d54;
+        --gold: #c58a1c;
+        --rose: #a33d4f;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: #162033;
-        background: #f6f8fb;
+        background: var(--mist);
+        color: var(--ink);
       }
 
       * {
         box-sizing: border-box;
       }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 32px;
+      html {
+        scroll-behavior: smooth;
       }
 
-      main {
-        width: min(760px, 100%);
+      body {
+        margin: 0;
+        min-width: 320px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+        background: rgba(10, 31, 53, 0.72);
+        color: #ffffff;
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1160px, calc(100% - 32px));
+        height: 68px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        font-weight: 800;
+      }
+
+      .mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: #ffffff;
+        color: var(--navy);
+        font-size: 0.9rem;
+        letter-spacing: 0;
+      }
+
+      .brand span:last-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .navlinks {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.94rem;
+      }
+
+      .navlinks a {
+        padding: 10px 12px;
+        border-radius: 8px;
+      }
+
+      .navlinks a:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 84svh;
+        display: grid;
+        align-items: center;
+        overflow: hidden;
+        color: #ffffff;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(8, 31, 54, 0.88) 0%, rgba(8, 31, 54, 0.70) 34%, rgba(8, 31, 54, 0.12) 72%),
+          url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 120px;
+        background: linear-gradient(180deg, rgba(244, 248, 251, 0), var(--mist));
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 120px 0 80px;
       }
 
       .eyebrow {
-        margin: 0 0 12px;
-        color: #0f7a67;
-        font-size: 0.86rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
+        margin: 0 0 18px;
+        color: #a8f1e6;
+        font-size: 0.84rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
       h1 {
+        max-width: 760px;
         margin: 0;
-        font-size: clamp(2.4rem, 8vw, 5.4rem);
+        font-size: clamp(3rem, 9vw, 6.6rem);
         line-height: 0.95;
         letter-spacing: 0;
       }
 
-      p {
-        max-width: 56ch;
-        margin: 24px 0 0;
-        color: #46556d;
-        font-size: 1.12rem;
+      .lead {
+        max-width: 660px;
+        margin: 26px 0 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.06rem, 2.4vw, 1.3rem);
         line-height: 1.7;
       }
 
-      .status {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
         margin-top: 34px;
-        padding: 12px 16px;
-        border: 1px solid #d8e0ea;
-        border-radius: 8px;
-        background: #ffffff;
-        color: #26354c;
-        font-weight: 650;
       }
 
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #16a36d;
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 8px;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        background: #ffffff;
+        color: var(--navy);
+      }
+
+      .button.secondary {
+        border: 1px solid rgba(255, 255, 255, 0.48);
+        color: #ffffff;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .section.alt {
+        background: #ffffff;
+      }
+
+      .wrap {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: clamp(1.9rem, 4vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .section-note {
+        max-width: 520px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .link-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .link-card {
+        min-height: 210px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: 0 14px 30px rgba(28, 51, 79, 0.06);
+      }
+
+      .link-card:hover {
+        transform: translateY(-2px);
+        border-color: #b9c9d8;
+      }
+
+      .link-card strong {
+        display: block;
+        margin-top: 16px;
+        font-size: 1.14rem;
+        line-height: 1.25;
+      }
+
+      .link-card p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .chip {
+        width: fit-content;
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: #ffffff;
+        font-size: 0.76rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .chip.teal {
+        background: var(--teal);
+      }
+
+      .chip.green {
+        background: var(--green);
+      }
+
+      .chip.gold {
+        background: var(--gold);
+      }
+
+      .chip.rose {
+        background: var(--rose);
+      }
+
+      .feature {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 34px;
+        align-items: center;
+      }
+
+      .feature-media {
+        min-height: 360px;
+        border-radius: 8px;
+        background: url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
+      }
+
+      .feature-copy {
+        padding: 22px 0;
+      }
+
+      .feature-copy p {
+        color: var(--muted);
+        font-size: 1.06rem;
+        line-height: 1.75;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .stat {
+        padding: 18px;
+        border-left: 4px solid var(--teal);
+        background: var(--mist);
+      }
+
+      .stat b {
+        display: block;
+        font-size: 1.7rem;
+        color: var(--navy);
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .notice {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+        padding: 26px;
+        border-radius: 8px;
+        background: var(--navy);
+        color: #ffffff;
+      }
+
+      .notice h2 {
+        color: #ffffff;
+      }
+
+      .notice p {
+        max-width: 720px;
+        margin: 12px 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.65;
+      }
+
+      footer {
+        padding: 34px 0;
+        border-top: 1px solid var(--line);
+        background: #ffffff;
+        color: var(--muted);
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 920px) {
+        .navlinks {
+          display: none;
+        }
+
+        .hero {
+          min-height: 82svh;
+        }
+
+        .hero::before {
+          background:
+            linear-gradient(90deg, rgba(8, 31, 54, 0.92) 0%, rgba(8, 31, 54, 0.72) 56%, rgba(8, 31, 54, 0.25) 100%),
+            url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
+        }
+
+        .section-head,
+        .notice,
+        .feature {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .link-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          width: min(100% - 24px, 1160px);
+          height: 62px;
+        }
+
+        .mark {
+          width: 34px;
+          height: 34px;
+        }
+
+        .hero-inner,
+        .wrap {
+          width: min(100% - 24px, 1160px);
+        }
+
+        .hero-inner {
+          padding-top: 110px;
+        }
+
+        .section {
+          padding: 54px 0;
+        }
+
+        .link-grid,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .feature-media {
+          min-height: 260px;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <p class="eyebrow">GitHub Pages</p>
-      <h1>SSTP Terengganu</h1>
-      <p>Laman ini sedang disambungkan ke domain rasmi. Kandungan penuh boleh ditambah selepas setup domain dan hosting selesai.</p>
-      <div class="status">
-        <span class="dot" aria-hidden="true"></span>
-        Domain setup in progress
-      </div>
+    <header class="topbar">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="#utama" aria-label="SSTP Terengganu">
+          <span class="mark">ST</span>
+          <span>SSTP Terengganu</span>
+        </a>
+        <div class="navlinks">
+          <a href="#pautan">Pautan</a>
+          <a href="#peranan">Peranan</a>
+          <a href="#kemaskini">Kemaskini</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="utama">
+      <section class="hero" aria-label="SSTP Terengganu">
+        <div class="hero-inner">
+          <p class="eyebrow">Hab Digital Rasmi</p>
+          <h1>SSTP Terengganu</h1>
+          <p class="lead">Pusat pautan rasmi untuk portal, hebahan, program dan perkhidmatan digital berkaitan SSTP Terengganu.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://portal.sstp-terengganu.net">Buka Portal Analitik</a>
+            <a class="button secondary" href="#pautan">Lihat Semua Pautan</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pautan">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Pautan Utama</h2>
+            <p class="section-note">Semua laman penting boleh dikumpulkan di sini supaya pengguna hanya perlu ingat satu alamat domain rasmi.</p>
+          </div>
+
+          <div class="link-grid">
+            <a class="link-card" href="https://portal.sstp-terengganu.net">
+              <span class="chip teal">Aktif</span>
+              <div>
+                <strong>Portal Analitik Pertandingan</strong>
+                <p>Akses portal analitik dan maklumat pertandingan SSTP.</p>
+              </div>
+            </a>
+
+            <a class="link-card" href="#kemaskini">
+              <span class="chip green">Hub</span>
+              <div>
+                <strong>Hebahan Program</strong>
+                <p>Ruang untuk pautan hebahan, jadual dan maklumat program rasmi.</p>
+              </div>
+            </a>
+
+            <a class="link-card" href="#kemaskini">
+              <span class="chip gold">Borang</span>
+              <div>
+                <strong>Pendaftaran dan Maklum Balas</strong>
+                <p>Kumpulkan pautan borang pendaftaran, penyertaan atau maklum balas.</p>
+              </div>
+            </a>
+
+            <a class="link-card" href="#kemaskini">
+              <span class="chip rose">Info</span>
+              <div>
+                <strong>Galeri dan Dokumen</strong>
+                <p>Tempat untuk pautan galeri, dokumen, panduan dan bahan rujukan.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="peranan">
+        <div class="wrap feature">
+          <div class="feature-media" role="img" aria-label="Visual hab digital SSTP Terengganu"></div>
+          <div class="feature-copy">
+            <p class="eyebrow">Satu Domain, Banyak Akses</p>
+            <h2>Landing page rasmi untuk semua laman SSTP.</h2>
+            <p>Halaman ini direka sebagai pintu masuk yang ringkas, kemas dan mudah dikembangkan. Apabila ada website baharu, pautan boleh ditambah terus tanpa mengubah struktur domain utama.</p>
+
+            <div class="stats" aria-label="Ringkasan fungsi laman">
+              <div class="stat">
+                <b>01</b>
+                <span>Hab portal dan sistem</span>
+              </div>
+              <div class="stat">
+                <b>02</b>
+                <span>Ruang hebahan rasmi</span>
+              </div>
+              <div class="stat">
+                <b>03</b>
+                <span>Pautan program dan dokumen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kemaskini">
+        <div class="wrap">
+          <div class="notice">
+            <div>
+              <h2>Kemaskini pautan seterusnya</h2>
+              <p>Senarai pautan boleh ditambah secara berperingkat mengikut keperluan program, sistem, dashboard atau dokumen rasmi SSTP Terengganu.</p>
+            </div>
+            <a class="button primary" href="https://portal.sstp-terengganu.net">Pergi ke Portal</a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="wrap foot">
+        <span>SSTP Terengganu</span>
+        <span>Hab digital rasmi untuk pautan dan perkhidmatan berkaitan.</span>
+      </div>
+    </footer>
   </body>
 </html>
