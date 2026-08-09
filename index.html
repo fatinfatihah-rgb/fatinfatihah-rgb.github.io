@@ -204,6 +204,10 @@
         color: #ffffff;
       }
 
+      .mobile-quick {
+        display: none;
+      }
+
       .section {
         padding: 76px 0;
       }
@@ -370,6 +374,32 @@
         line-height: 1.65;
       }
 
+      .announcement-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .announcement-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.55;
+      }
+
+      .announcement-list li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        margin-top: 8px;
+        border-radius: 50%;
+        background: #a8f1e6;
+        flex: 0 0 auto;
+      }
+
       footer {
         padding: 64px 0 34px;
         border-top: 1px solid var(--line);
@@ -520,6 +550,36 @@
           width: 100%;
         }
 
+        .mobile-quick {
+          position: sticky;
+          z-index: 12;
+          top: 62px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          padding: 12px;
+          border-bottom: 1px solid var(--line);
+          background: rgba(244, 248, 251, 0.94);
+          backdrop-filter: blur(12px);
+        }
+
+        .mobile-quick .button {
+          min-height: 46px;
+          border-radius: 8px;
+          font-size: 0.92rem;
+        }
+
+        .mobile-quick .button.primary {
+          background: var(--navy);
+          color: #ffffff;
+        }
+
+        .mobile-quick .button.secondary {
+          border-color: var(--line);
+          background: #ffffff;
+          color: var(--navy);
+        }
+
         .feature-media {
           min-height: 260px;
         }
@@ -563,6 +623,11 @@
           </div>
         </div>
       </section>
+
+      <div class="mobile-quick" aria-label="Akses pantas mobile">
+        <a class="button primary" href="https://portal.sstp-terengganu.net">Portal Analitik</a>
+        <a class="button secondary" href="#hubungi">Hubungi SSTP</a>
+      </div>
 
       <section class="section" id="pautan">
         <div class="wrap">
@@ -637,8 +702,12 @@
         <div class="wrap">
           <div class="notice">
             <div>
-              <h2>Kemaskini pautan seterusnya</h2>
-              <p>Senarai pautan boleh ditambah secara berperingkat mengikut keperluan program, sistem, dashboard atau dokumen rasmi SSTP Terengganu.</p>
+              <h2>Pengumuman Terkini</h2>
+              <ul class="announcement-list">
+                <li>Portal Analitik Pertandingan Digital telah dibuka.</li>
+                <li>Pautan program akan dikemaskini dari semasa ke semasa.</li>
+                <li>Hubungi SSTP untuk pertanyaan rasmi.</li>
+              </ul>
             </div>
             <a class="button primary" href="https://portal.sstp-terengganu.net">Pergi ke Portal</a>
           </div>
