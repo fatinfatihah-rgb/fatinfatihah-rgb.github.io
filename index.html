@@ -76,15 +76,21 @@
       }
 
       .mark {
-        width: 38px;
-        height: 38px;
+        width: 44px;
+        height: 44px;
         display: grid;
         place-items: center;
-        border-radius: 8px;
+        border-radius: 12px;
         background: #ffffff;
-        color: var(--navy);
-        font-size: 0.9rem;
-        letter-spacing: 0;
+        overflow: hidden;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+      }
+
+      .mark img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
       }
 
       .brand span:last-child {
@@ -365,10 +371,84 @@
       }
 
       footer {
-        padding: 34px 0;
+        padding: 64px 0 34px;
         border-top: 1px solid var(--line);
         background: #ffffff;
         color: var(--muted);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 24px;
+        align-items: stretch;
+        margin-bottom: 34px;
+      }
+
+      .contact-card {
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--mist);
+      }
+
+      .contact-card h2 {
+        margin: 0 0 18px;
+        color: var(--ink);
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        line-height: 1.05;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 16px;
+        margin: 0;
+      }
+
+      .contact-item {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 16px;
+        align-items: start;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .contact-item:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .contact-item dt {
+        color: var(--navy);
+        font-weight: 800;
+      }
+
+      .contact-item dd {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .contact-item a {
+        color: var(--navy);
+        font-weight: 800;
+      }
+
+      .map-card {
+        min-height: 360px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--mist);
+      }
+
+      .map-card iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 360px;
+        border: 0;
+        display: block;
       }
 
       .foot {
@@ -396,7 +476,8 @@
 
         .section-head,
         .notice,
-        .feature {
+          .feature,
+          .contact-grid {
           grid-template-columns: 1fr;
           display: grid;
         }
@@ -413,8 +494,8 @@
         }
 
         .mark {
-          width: 34px;
-          height: 34px;
+          width: 38px;
+          height: 38px;
         }
 
         .hero-inner,
@@ -442,6 +523,15 @@
         .feature-media {
           min-height: 260px;
         }
+
+        .contact-card {
+          padding: 22px;
+        }
+
+        .contact-item {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
       }
     </style>
   </head>
@@ -449,13 +539,14 @@
     <header class="topbar">
       <nav class="nav" aria-label="Navigasi utama">
         <a class="brand" href="#utama" aria-label="SSTP Terengganu">
-          <span class="mark">ST</span>
+          <span class="mark" aria-hidden="true"><img src="assets/logo-sstp-terengganu.svg" alt=""></span>
           <span>SSTP Terengganu</span>
         </a>
         <div class="navlinks">
           <a href="#pautan">Pautan</a>
           <a href="#peranan">Peranan</a>
           <a href="#kemaskini">Kemaskini</a>
+          <a href="#hubungi">Hubungi</a>
         </div>
       </nav>
     </header>
@@ -555,7 +646,34 @@
       </section>
     </main>
 
-    <footer>
+    <footer id="hubungi">
+      <div class="wrap contact-grid">
+        <div class="contact-card">
+          <p class="eyebrow">Hubungi Kami</p>
+          <h2>Sektor Sumber dan Teknologi Pendidikan</h2>
+          <dl class="contact-list">
+            <div class="contact-item">
+              <dt>Alamat</dt>
+              <dd>Sektor Sumber Teknologi Pendidikan, JPN Terengganu<br>Bandar Marang, 21600 Marang, Terengganu</dd>
+            </div>
+            <div class="contact-item">
+              <dt>Telefon</dt>
+              <dd><a href="tel:+6096277100">09-627 7100</a></dd>
+            </div>
+            <div class="contact-item">
+              <dt>Telegram</dt>
+              <dd><a href="https://t.me/sstpjpnt">Info SSTP JPN Terengganu</a></dd>
+            </div>
+          </dl>
+        </div>
+        <div class="map-card">
+          <iframe
+            title="Peta lokasi SSTP JPN Terengganu"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Sektor%20Sumber%20Teknologi%20Pendidikan%20JPN%20Terengganu%20Marang&output=embed"></iframe>
+        </div>
+      </div>
       <div class="wrap foot">
         <span>SSTP Terengganu</span>
         <span>Hab digital rasmi untuk pautan dan perkhidmatan berkaitan.</span>
