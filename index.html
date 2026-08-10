@@ -279,7 +279,24 @@
       }
 
       .section.alt {
-        background: #ffffff;
+        position: relative;
+        background:
+          radial-gradient(circle at 78% 18%, rgba(103, 220, 200, 0.16), transparent 28%),
+          linear-gradient(rgba(103, 220, 200, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(103, 220, 200, 0.045) 1px, transparent 1px),
+          #07111f;
+        background-size: auto, 72px 72px, 72px 72px, auto;
+        color: #ffffff;
+      }
+
+      .section.alt::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(238, 245, 248, 0.08), transparent 20%),
+          linear-gradient(180deg, transparent 72%, rgba(7, 17, 31, 0.9));
+        pointer-events: none;
       }
 
       .section.digital-band {
@@ -387,6 +404,8 @@
       }
 
       .feature {
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-columns: 0.95fr 1.05fr;
         gap: 34px;
@@ -396,15 +415,28 @@
       .feature-media {
         min-height: 360px;
         border-radius: 8px;
-        background: url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
+        border: 1px solid rgba(103, 220, 200, 0.26);
+        background:
+          linear-gradient(180deg, rgba(7, 17, 31, 0.04), rgba(7, 17, 31, 0.28)),
+          url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
+        box-shadow:
+          0 26px 70px rgba(0, 0, 0, 0.28),
+          0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        overflow: hidden;
       }
 
       .feature-copy {
-        padding: 22px 0;
+        padding: 28px;
+        border: 1px solid rgba(103, 220, 200, 0.18);
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+          rgba(8, 18, 32, 0.58);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
       }
 
       .feature-copy p {
-        color: var(--muted);
+        color: rgba(236, 250, 252, 0.76);
         font-size: 1.06rem;
         line-height: 1.75;
       }
@@ -432,19 +464,31 @@
 
       .stat {
         padding: 18px;
-        border-left: 4px solid var(--teal);
-        background: #f1f8fa;
+        border-left: 4px solid var(--cyan);
+        background:
+          linear-gradient(180deg, rgba(103, 220, 200, 0.12), rgba(255, 255, 255, 0.04)),
+          rgba(255, 255, 255, 0.055);
+        box-shadow: 0 0 0 1px rgba(103, 220, 200, 0.1) inset;
       }
 
       .stat b {
         display: block;
         font-size: 1.7rem;
-        color: var(--navy);
+        color: var(--cyan);
       }
 
       .stat span {
-        color: var(--muted);
+        color: rgba(236, 250, 252, 0.72);
         font-size: 0.92rem;
+      }
+
+      #kemaskini {
+        background:
+          radial-gradient(circle at 16% 16%, rgba(103, 220, 200, 0.13), transparent 28%),
+          linear-gradient(rgba(103, 220, 200, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(103, 220, 200, 0.038) 1px, transparent 1px),
+          #07111f;
+        background-size: auto, 72px 72px, 72px 72px, auto;
       }
 
       .notice {
@@ -454,10 +498,13 @@
         align-items: center;
         padding: 26px;
         border-radius: 8px;
+        border: 1px solid rgba(103, 220, 200, 0.22);
         background:
+          radial-gradient(circle at 90% 18%, rgba(103, 220, 200, 0.16), transparent 30%),
           linear-gradient(135deg, rgba(103, 220, 200, 0.16), transparent 38%),
-          #0b1422;
+          rgba(8, 18, 32, 0.88);
         color: #ffffff;
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
       }
 
       .notice h2 {
@@ -499,9 +546,13 @@
 
       footer {
         padding: 64px 0 34px;
-        border-top: 1px solid var(--line);
-        background: #ffffff;
-        color: var(--muted);
+        border-top: 1px solid rgba(103, 220, 200, 0.18);
+        background:
+          linear-gradient(rgba(103, 220, 200, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(103, 220, 200, 0.035) 1px, transparent 1px),
+          #081321;
+        background-size: 72px 72px;
+        color: rgba(236, 250, 252, 0.7);
       }
 
       .contact-grid {
@@ -514,14 +565,16 @@
 
       .contact-card {
         padding: 28px;
-        border: 1px solid var(--line);
+        border: 1px solid rgba(103, 220, 200, 0.18);
         border-radius: 8px;
-        background: var(--mist);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+          rgba(255, 255, 255, 0.045);
       }
 
       .contact-card h2 {
         margin: 0 0 18px;
-        color: var(--ink);
+        color: #ffffff;
         font-size: clamp(1.8rem, 4vw, 2.6rem);
         line-height: 1.05;
       }
@@ -538,7 +591,7 @@
         gap: 16px;
         align-items: start;
         padding-top: 16px;
-        border-top: 1px solid var(--line);
+        border-top: 1px solid rgba(103, 220, 200, 0.14);
       }
 
       .contact-item:first-child {
@@ -547,27 +600,28 @@
       }
 
       .contact-item dt {
-        color: var(--navy);
+        color: var(--cyan);
         font-weight: 800;
       }
 
       .contact-item dd {
         margin: 0;
-        color: var(--muted);
+        color: rgba(236, 250, 252, 0.72);
         line-height: 1.6;
       }
 
       .contact-item a {
-        color: var(--navy);
+        color: #ffffff;
         font-weight: 800;
       }
 
       .map-card {
         min-height: 360px;
         overflow: hidden;
-        border: 1px solid var(--line);
+        border: 1px solid rgba(103, 220, 200, 0.18);
         border-radius: 8px;
-        background: var(--mist);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
       }
 
       .map-card iframe {
