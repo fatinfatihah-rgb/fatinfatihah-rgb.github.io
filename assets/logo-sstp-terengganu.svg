@@ -1,71 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" role="img" aria-labelledby="title desc">
   <title id="title">SSTP Terengganu</title>
-  <desc id="desc">Logo digital SSTP Terengganu dengan gaya metalik, orbit dan litar neon.</desc>
+  <desc id="desc">Logo digital SSTP Terengganu dengan gaya metalik dan litar neon.</desc>
   <defs>
-    <linearGradient id="metal" x1="86" y1="48" x2="442" y2="184" gradientUnits="userSpaceOnUse">
+    <linearGradient id="metal" x1="92" y1="58" x2="402" y2="166" gradientUnits="userSpaceOnUse">
       <stop stop-color="#ffffff"/>
-      <stop offset="0.28" stop-color="#cbd3dc"/>
-      <stop offset="0.5" stop-color="#ffffff"/>
-      <stop offset="0.74" stop-color="#8d9aaa"/>
+      <stop offset="0.3" stop-color="#d7e0ea"/>
+      <stop offset="0.54" stop-color="#ffffff"/>
+      <stop offset="0.78" stop-color="#95a4b7"/>
       <stop offset="1" stop-color="#f8fbff"/>
     </linearGradient>
-    <linearGradient id="cyan" x1="238" y1="48" x2="548" y2="174" gradientUnits="userSpaceOnUse">
+    <linearGradient id="cyan" x1="188" y1="36" x2="456" y2="166" gradientUnits="userSpaceOnUse">
       <stop stop-color="#7ff7ff"/>
       <stop offset="0.48" stop-color="#25d5e8"/>
       <stop offset="1" stop-color="#0898c8"/>
     </linearGradient>
-    <linearGradient id="brandText" x1="115" y1="56" x2="520" y2="176" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffffff"/>
-      <stop offset="0.28" stop-color="#b9c3cf"/>
-      <stop offset="0.48" stop-color="#ffffff"/>
-      <stop offset="0.62" stop-color="#7ff7ff"/>
-      <stop offset="0.82" stop-color="#25d5e8"/>
-      <stop offset="1" stop-color="#0d98c8"/>
-    </linearGradient>
-    <linearGradient id="dark" x1="82" y1="34" x2="560" y2="218" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#040913"/>
-      <stop offset="0.5" stop-color="#0b2330"/>
-      <stop offset="1" stop-color="#020611"/>
-    </linearGradient>
     <filter id="glow" x="-30%" y="-50%" width="160%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     <filter id="shadow" x="-20%" y="-30%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#00040a" flood-opacity="0.58"/>
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#00040a" flood-opacity="0.58"/>
     </filter>
   </defs>
 
-  <path d="M74 138C143 50 382 15 557 78" fill="none" stroke="#e9f2fb" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
-  <path d="M61 159c115 54 339 62 508-40" fill="none" stroke="url(#cyan)" stroke-width="17" stroke-linecap="round" filter="url(#glow)"/>
-  <path d="M72 156c126 39 327 41 478-43" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+  <path d="M66 123C128 48 322 22 457 74" fill="none" stroke="#eaf6ff" stroke-width="11" stroke-linecap="round" opacity="0.82"/>
+  <path d="M55 144c94 43 272 50 411-30" fill="none" stroke="url(#cyan)" stroke-width="15" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M67 141c101 31 259 33 381-32" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.78"/>
 
   <g filter="url(#shadow)">
-    <text x="318" y="166" text-anchor="middle" font-family="Inter, Arial Black, Arial, sans-serif" font-size="128" font-weight="950" letter-spacing="-8" stroke="#06101b" stroke-width="12" paint-order="stroke fill" fill="url(#brandText)">SSTP</text>
-    <text x="318" y="166" text-anchor="middle" font-family="Inter, Arial Black, Arial, sans-serif" font-size="128" font-weight="950" letter-spacing="-8" fill="url(#brandText)">SSTP</text>
+    <text x="260" y="152" text-anchor="middle" font-family="Arial Black, Inter, Arial, sans-serif" font-size="112" font-weight="900" letter-spacing="-6" stroke="#06101b" stroke-width="10" paint-order="stroke fill" fill="url(#metal)">SSTP</text>
+    <text x="260" y="152" text-anchor="middle" font-family="Arial Black, Inter, Arial, sans-serif" font-size="112" font-weight="900" letter-spacing="-6" fill="url(#metal)">SSTP</text>
   </g>
 
   <g fill="none" stroke="url(#cyan)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-    <path d="M300 51V24h28"/>
-    <path d="M333 51V15h44"/>
-    <path d="M366 51V28h34"/>
-    <path d="M414 70h56"/>
-    <path d="M423 93h78"/>
-    <path d="M423 116h52v22h49"/>
+    <path d="M236 51V27h24"/>
+    <path d="M266 51V18h37"/>
+    <path d="M296 51V30h28"/>
+    <path d="M352 50h46"/>
+    <path d="M367 116h67v20h35"/>
   </g>
 
   <g fill="#7ff7ff" filter="url(#glow)">
-    <circle cx="328" cy="24" r="8"/>
-    <circle cx="377" cy="15" r="8"/>
-    <circle cx="400" cy="28" r="8"/>
-    <circle cx="470" cy="70" r="7"/>
-    <circle cx="501" cy="93" r="7"/>
-    <circle cx="524" cy="138" r="7"/>
+    <circle cx="260" cy="27" r="7"/>
+    <circle cx="303" cy="18" r="7"/>
+    <circle cx="324" cy="30" r="7"/>
+    <circle cx="398" cy="50" r="6"/>
+    <circle cx="469" cy="136" r="6"/>
   </g>
 
-  <rect x="204" y="198" width="230" height="3" rx="1.5" fill="url(#cyan)" opacity="0.82"/>
-  <text x="319" y="229" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="8" fill="#eaf7fb">TERENGGANU</text>
+  <rect x="151" y="174" width="218" height="3" rx="1.5" fill="url(#cyan)" opacity="0.9"/>
+  <text x="260" y="203" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="7" fill="#eaf7fb">TERENGGANU</text>
 </svg>
