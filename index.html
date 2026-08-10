@@ -22,8 +22,10 @@
         --green: #3f9d54;
         --gold: #c58a1c;
         --rose: #a33d4f;
+        --cyan: #67dcc8;
+        --deep: #091321;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: var(--mist);
+        background: #eef5f8;
         color: var(--ink);
       }
 
@@ -51,8 +53,8 @@
         top: 0;
         left: 0;
         right: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.28);
-        background: rgba(10, 31, 53, 0.72);
+        border-bottom: 1px solid rgba(103, 220, 200, 0.24);
+        background: rgba(7, 17, 31, 0.78);
         color: #ffffff;
         backdrop-filter: blur(14px);
       }
@@ -133,16 +135,17 @@
       }
 
       .navlinks a:hover {
-        background: rgba(255, 255, 255, 0.12);
+        background: rgba(103, 220, 200, 0.14);
       }
 
       .hero {
         position: relative;
-        min-height: 84svh;
+        min-height: 88svh;
         display: grid;
         align-items: center;
         overflow: hidden;
         color: #ffffff;
+        background: #07111f;
       }
 
       .hero::before {
@@ -150,18 +153,20 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(8, 31, 54, 0.88) 0%, rgba(8, 31, 54, 0.70) 34%, rgba(8, 31, 54, 0.12) 72%),
+          radial-gradient(circle at 78% 22%, rgba(103, 220, 200, 0.28), transparent 30%),
+          linear-gradient(90deg, rgba(6, 18, 33, 0.96) 0%, rgba(6, 18, 33, 0.78) 42%, rgba(6, 18, 33, 0.22) 78%),
           url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
       }
 
       .hero::after {
         content: "";
         position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 120px;
-        background: linear-gradient(180deg, rgba(244, 248, 251, 0), var(--mist));
+        inset: 0;
+        background:
+          linear-gradient(rgba(103, 220, 200, 0.075) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(103, 220, 200, 0.065) 1px, transparent 1px),
+          linear-gradient(180deg, transparent 78%, #eef5f8 100%);
+        background-size: 70px 70px, 70px 70px, 100% 100%;
       }
 
       .hero-inner {
@@ -169,12 +174,19 @@
         z-index: 2;
         width: min(1160px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 120px 0 80px;
+        display: grid;
+        gap: 34px;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.46fr);
+        padding: 128px 0 90px;
+      }
+
+      .hero-copy {
+        min-width: 0;
       }
 
       .eyebrow {
         margin: 0 0 18px;
-        color: #a8f1e6;
+        color: var(--cyan);
         font-size: 0.84rem;
         font-weight: 800;
         letter-spacing: 0.1em;
@@ -184,7 +196,7 @@
       h1 {
         max-width: 760px;
         margin: 0;
-        font-size: clamp(3rem, 9vw, 6.6rem);
+        font-size: clamp(3rem, 8vw, 6.2rem);
         line-height: 0.95;
         letter-spacing: 0;
       }
@@ -195,6 +207,39 @@
         color: rgba(255, 255, 255, 0.9);
         font-size: clamp(1.06rem, 2.4vw, 1.3rem);
         line-height: 1.7;
+      }
+
+      .hero-panel {
+        align-self: end;
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+        border: 1px solid rgba(103, 220, 200, 0.22);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
+          rgba(8, 18, 32, 0.72);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+      }
+
+      .hero-panel div {
+        display: grid;
+        gap: 4px;
+        padding: 16px;
+        border: 1px solid rgba(103, 220, 200, 0.14);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .hero-panel strong {
+        color: var(--cyan);
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+
+      .hero-panel span {
+        color: rgba(255, 255, 255, 0.74);
+        line-height: 1.4;
       }
 
       .hero-actions {
@@ -215,12 +260,12 @@
       }
 
       .button.primary {
-        background: #ffffff;
-        color: var(--navy);
+        background: linear-gradient(135deg, #67dcc8, #ffffff);
+        color: #07111f;
       }
 
       .button.secondary {
-        border: 1px solid rgba(255, 255, 255, 0.48);
+        border: 1px solid rgba(103, 220, 200, 0.42);
         color: #ffffff;
       }
 
@@ -234,6 +279,19 @@
 
       .section.alt {
         background: #ffffff;
+      }
+
+      .section.digital-band {
+        background:
+          linear-gradient(rgba(103, 220, 200, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(103, 220, 200, 0.05) 1px, transparent 1px),
+          #0b1422;
+        background-size: 72px 72px;
+        color: #ffffff;
+      }
+
+      .digital-band .section-note {
+        color: rgba(236, 250, 252, 0.72);
       }
 
       .wrap {
@@ -265,7 +323,7 @@
 
       .link-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 14px;
       }
 
@@ -275,15 +333,17 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 22px;
-        border: 1px solid var(--line);
+        border: 1px solid rgba(103, 220, 200, 0.18);
         border-radius: 8px;
-        background: var(--paper);
-        box-shadow: 0 14px 30px rgba(28, 51, 79, 0.06);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04)),
+          rgba(255, 255, 255, 0.045);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
       }
 
       .link-card:hover {
         transform: translateY(-2px);
-        border-color: #b9c9d8;
+        border-color: rgba(103, 220, 200, 0.5);
       }
 
       .link-card strong {
@@ -295,7 +355,7 @@
 
       .link-card p {
         margin: 12px 0 0;
-        color: var(--muted);
+        color: rgba(236, 250, 252, 0.68);
         line-height: 1.55;
       }
 
@@ -348,6 +408,20 @@
         line-height: 1.75;
       }
 
+      .feature-copy {
+        position: relative;
+      }
+
+      .feature-copy::before {
+        content: "";
+        display: block;
+        width: 72px;
+        height: 4px;
+        margin-bottom: 22px;
+        border-radius: 999px;
+        background: var(--cyan);
+      }
+
       .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -358,7 +432,7 @@
       .stat {
         padding: 18px;
         border-left: 4px solid var(--teal);
-        background: var(--mist);
+        background: #f1f8fa;
       }
 
       .stat b {
@@ -379,7 +453,9 @@
         align-items: center;
         padding: 26px;
         border-radius: 8px;
-        background: var(--navy);
+        background:
+          linear-gradient(135deg, rgba(103, 220, 200, 0.16), transparent 38%),
+          #0b1422;
         color: #ffffff;
       }
 
@@ -524,6 +600,7 @@
             url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
         }
 
+        .hero-inner,
         .section-head,
         .notice,
           .feature,
@@ -534,6 +611,11 @@
 
         .link-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero-panel {
+          align-self: start;
+          max-width: 520px;
         }
       }
 
@@ -572,7 +654,8 @@
         }
 
         .link-grid,
-        .stats {
+        .stats,
+        .hero-panel {
           grid-template-columns: 1fr;
         }
 
@@ -645,12 +728,28 @@
     <main id="utama">
       <section class="hero" aria-label="SSTP Terengganu">
         <div class="hero-inner">
-          <p class="eyebrow">Hab Digital Rasmi</p>
-          <h1>SSTP Terengganu</h1>
-          <p class="lead">Pusat pautan rasmi untuk portal, hebahan, program dan perkhidmatan digital berkaitan SSTP Terengganu.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://digitalnexus.sstp-terengganu.net">Buka Digital Nexus</a>
-            <a class="button secondary" href="https://portal.sstp-terengganu.net">Portal Analitik</a>
+          <div class="hero-copy">
+            <p class="eyebrow">Hab Digital Rasmi</p>
+            <h1>SSTP Terengganu</h1>
+            <p class="lead">Pusat pautan rasmi untuk portal, hebahan, program dan perkhidmatan digital berkaitan SSTP Terengganu.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="https://digitalnexus.sstp-terengganu.net">Buka Digital Nexus</a>
+              <a class="button secondary" href="https://portal.sstp-terengganu.net">Portal Analitik</a>
+            </div>
+          </div>
+          <div class="hero-panel" aria-label="Ringkasan akses digital SSTP">
+            <div>
+              <strong>01</strong>
+              <span>Portal negeri untuk bahan PdP, dashboard dan rekod digital.</span>
+            </div>
+            <div>
+              <strong>02</strong>
+              <span>Analitik, pertandingan, hebahan dan pautan perkhidmatan.</span>
+            </div>
+            <div>
+              <strong>03</strong>
+              <span>Satu domain rasmi untuk akses warga pendidikan Terengganu.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -660,7 +759,7 @@
         <a class="button secondary" href="https://portal.sstp-terengganu.net">Portal Analitik</a>
       </div>
 
-      <section class="section" id="pautan">
+      <section class="section digital-band" id="pautan">
         <div class="wrap">
           <div class="section-head">
             <h2>Pautan Utama</h2>
