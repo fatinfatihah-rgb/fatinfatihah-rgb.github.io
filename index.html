@@ -491,6 +491,157 @@
         background: var(--violet);
       }
 
+      .directory-section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .directory-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 12%, rgba(78, 168, 255, 0.16), transparent 26rem),
+          radial-gradient(circle at 86% 22%, rgba(103, 220, 200, 0.13), transparent 28rem);
+        pointer-events: none;
+      }
+
+      .directory-toolbar {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .directory-search {
+        min-height: 50px;
+        width: 100%;
+        border: 1px solid rgba(103, 220, 200, 0.24);
+        border-radius: 8px;
+        padding: 0 16px;
+        background: rgba(4, 12, 24, 0.72);
+        color: #ffffff;
+        font: inherit;
+        outline: none;
+      }
+
+      .directory-search:focus {
+        border-color: rgba(103, 220, 200, 0.72);
+        box-shadow: 0 0 0 4px rgba(103, 220, 200, 0.1);
+      }
+
+      .directory-count {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(103, 220, 200, 0.18);
+        border-radius: 8px;
+        padding: 0 16px;
+        color: rgba(236, 250, 252, 0.78);
+        background: rgba(255, 255, 255, 0.055);
+        white-space: nowrap;
+        font-weight: 800;
+      }
+
+      .directory-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .officer-card {
+        min-height: 230px;
+        display: grid;
+        align-content: space-between;
+        gap: 18px;
+        border: 1px solid rgba(103, 220, 200, 0.18);
+        border-radius: 8px;
+        padding: 20px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+          rgba(8, 18, 32, 0.72);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+      }
+
+      .officer-card.is-placeholder {
+        border-style: dashed;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .officer-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .officer-no {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: rgba(103, 220, 200, 0.14);
+        color: var(--cyan);
+        font-weight: 900;
+        flex: 0 0 auto;
+      }
+
+      .officer-grade {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        padding: 6px 9px;
+        color: rgba(255, 255, 255, 0.82);
+        font-weight: 900;
+        font-size: 0.8rem;
+      }
+
+      .officer-card h3 {
+        margin: 0;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: 1.18rem;
+        line-height: 1.25;
+      }
+
+      .officer-card p {
+        margin: 10px 0 0;
+        color: rgba(236, 250, 252, 0.7);
+        line-height: 1.5;
+      }
+
+      .officer-contact {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .officer-contact span,
+      .officer-contact a {
+        border-radius: 999px;
+        padding: 8px 10px;
+        background: rgba(255, 255, 255, 0.07);
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.86rem;
+        font-weight: 800;
+      }
+
+      .empty-state {
+        display: none;
+        position: relative;
+        z-index: 1;
+        margin-top: 14px;
+        border: 1px dashed rgba(103, 220, 200, 0.3);
+        border-radius: 8px;
+        padding: 18px;
+        color: rgba(236, 250, 252, 0.76);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
       .feature {
         position: relative;
         z-index: 1;
@@ -762,6 +913,10 @@
           grid-column: span 2;
         }
 
+        .directory-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .hero-panel {
           align-self: start;
           max-width: 520px;
@@ -813,6 +968,8 @@
 
         .link-grid,
         .stats,
+        .directory-grid,
+        .directory-toolbar,
         .hero-panel {
           grid-template-columns: 1fr;
         }
@@ -961,11 +1118,11 @@
               </div>
             </a>
 
-            <a class="link-card" href="https://docs.google.com/spreadsheets/d/1srpDD3Xh4_N1AAZDY6Y36sAjszdDO_D9hZVEtqFg2a8/edit?usp=sharing" target="_blank" rel="noreferrer">
-              <span class="chip blue">Google Sheet</span>
+            <a class="link-card" href="#pegawai">
+              <span class="chip blue">Direktori</span>
               <div>
                 <strong>Senarai Pegawai USTP 2026</strong>
-                <p>Rujukan senarai pegawai USTP untuk semakan, penyelarasan dan kegunaan kerja rasmi.</p>
+                <p>Paparan kemas terus di laman ini untuk semakan nama pegawai, lokasi bertugas dan telefon pejabat.</p>
               </div>
             </a>
 
@@ -985,6 +1142,222 @@
               </div>
             </a>
           </div>
+        </div>
+      </section>
+
+      <section class="section directory-section" id="pegawai">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Senarai Pegawai USTP 2026</h2>
+            <p class="section-note">Direktori ringkas pegawai USTP PPD Negeri Terengganu. Paparan ini mengehadkan maklumat kepada nama, gred, lokasi dan telefon pejabat sahaja.</p>
+          </div>
+
+          <div class="directory-toolbar">
+            <input class="directory-search" id="officerSearch" type="search" placeholder="Cari nama, lokasi, daerah atau gred" aria-label="Cari pegawai USTP">
+            <div class="directory-count"><span id="officerCount">22</span> rekod</div>
+          </div>
+
+          <div class="directory-grid" id="officerGrid">
+            <article class="officer-card" data-search="mohd helmi firdaus bin embong dg12 pusat kegiatan guru bukit besar kuala terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">01</span><span class="officer-grade">DG12</span></div>
+                <h3>Mohd Helmi Firdaus bin Embong</h3>
+                <p>Pusat Kegiatan Guru Bukit Besar, D/a SK Pusat Bukit Besar, 21100 Kuala Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096235544">09-623 5544</a></div>
+            </article>
+
+            <article class="officer-card" data-search="muhammad taqiyuddin bin ahmad dg12 pusat kegiatan guru durian burong kuala terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">02</span><span class="officer-grade">DG12</span></div>
+                <h3>Muhammad Taqiyuddin bin Ahmad</h3>
+                <p>Pusat Kegiatan Guru Durian Burong, Jalan Air Jernih, 20050 Kuala Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096230544">09-623 0544</a></div>
+            </article>
+
+            <article class="officer-card is-placeholder" data-search="pusat kegiatan guru manir banggol peradong kuala terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">03</span><span class="officer-grade">TBA</span></div>
+                <h3>Nama pegawai akan dikemaskini</h3>
+                <p>Pusat Kegiatan Guru Manir, D/a SK Banggol Peradong, 21200 Kuala Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096154444">09-615 4444</a></div>
+            </article>
+
+            <article class="officer-card" data-search="mohd tajulfatah bin rohim dg10 pusat kegiatan guru tok jiring kuala terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">04</span><span class="officer-grade">DG10</span></div>
+                <h3>Mohd Tajulfatah bin Rohim</h3>
+                <p>Pusat Kegiatan Guru Tok Jiring, D/a SK Tok Jiring, 21060 Kuala Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096670344">09-667 0344</a></div>
+            </article>
+
+            <article class="officer-card" data-search="marinatul akta binti mukhtar dg12 pusat kegiatan guru mengabang telipot kuala terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">05</span><span class="officer-grade">DG12</span></div>
+                <h3>Marinatul Akta binti Mukhtar</h3>
+                <p>Pusat Kegiatan Guru Mengabang Telipot, D/a SK Mengabang Telipot, 21300 Kuala Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096692144">09-669 2144</a></div>
+            </article>
+
+            <article class="officer-card" data-search="mohd shukiman bin mohammad dg12 pusat kegiatan guru jerteh besut">
+              <div>
+                <div class="officer-top"><span class="officer-no">06</span><span class="officer-grade">DG12</span></div>
+                <h3>Mohd Shukiman bin Mohammad</h3>
+                <p>Pusat Kegiatan Guru Jerteh, D/a SK Pusat Jerteh, 22000 Jerteh, Besut</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096902044">09-690 2044</a></div>
+            </article>
+
+            <article class="officer-card" data-search="mohd faizul omar dg10 pusat kegiatan guru sri payong besut">
+              <div>
+                <div class="officer-top"><span class="officer-no">07</span><span class="officer-grade">DG10</span></div>
+                <h3>Mohd Faizul Omar</h3>
+                <p>Pusat Kegiatan Guru Sri Payong, D/a SK Seri Payong, 22010 Jerteh, Besut</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096061844">09-606 1844</a></div>
+            </article>
+
+            <article class="officer-card" data-search="mohd abd haafizdiin bin ismail dg10 pusat kegiatan guru raja alor lintang besut">
+              <div>
+                <div class="officer-top"><span class="officer-no">08</span><span class="officer-grade">DG10</span></div>
+                <h3>Mohd Abd Haafizdiin bin Ismail</h3>
+                <p>Pusat Kegiatan Guru Raja Alor Lintang, 22200 Besut</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096958115">09-695 8115</a></div>
+            </article>
+
+            <article class="officer-card" data-search="nor azwari bin che mt noor dg10 pusat kegiatan guru langkap setiu">
+              <div>
+                <div class="officer-top"><span class="officer-no">09</span><span class="officer-grade">DG10</span></div>
+                <h3>Nor Azwari bin Che Mt Noor</h3>
+                <p>Pusat Kegiatan Guru Langkap, D/a SK Batu 29, 21500 Setiu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096572044">09-657 2044</a></div>
+            </article>
+
+            <article class="officer-card" data-search="abu farhan bin zakaria dg10 pusat kegiatan guru permaisuri setiu">
+              <div>
+                <div class="officer-top"><span class="officer-no">10</span><span class="officer-grade">DG10</span></div>
+                <h3>Abu Farhan bin Zakaria</h3>
+                <p>Pusat Kegiatan Guru Permaisuri, D/a SK Kampung Buloh, 22100 Setiu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096092044">09-609 2044</a></div>
+            </article>
+
+            <article class="officer-card" data-search="syuhairah binti mohd sani dg10 pusat kegiatan guru marang">
+              <div>
+                <div class="officer-top"><span class="officer-no">11</span><span class="officer-grade">DG10</span></div>
+                <h3>Syuhairah binti Mohd Sani</h3>
+                <p>Pusat Kegiatan Guru Marang, D/a SK Gong Nangka, 21600 Marang</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096188044">09-618 8044</a></div>
+            </article>
+
+            <article class="officer-card" data-search="nurul afiqah binti awang dg10 pusat kegiatan guru bukit payong kuala terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">12</span><span class="officer-grade">DG10</span></div>
+                <h3>Nurul Afiqah binti Awang</h3>
+                <p>Pusat Kegiatan Guru Bukit Payong, D/a SK Padang Mengkuang, 21400 Kuala Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096198444">09-619 8444</a></div>
+            </article>
+
+            <article class="officer-card" data-search="junaida binti jusoh dg10 pusat kegiatan guru kuala berang hulu terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">13</span><span class="officer-grade">DG10</span></div>
+                <h3>Junaida binti Jusoh</h3>
+                <p>Pusat Kegiatan Guru Kuala Berang, 21700 Kuala Berang</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096825144">09-682 5144</a></div>
+            </article>
+
+            <article class="officer-card" data-search="zamri izuan bin hasan dg12 pusat kegiatan guru peroh hulu terengganu ajil">
+              <div>
+                <div class="officer-top"><span class="officer-no">14</span><span class="officer-grade">DG12</span></div>
+                <h3>Zamri Izuan bin Hasan</h3>
+                <p>Pusat Kegiatan Guru Peroh, D/a SK Peroh, 21810 Ajil</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096818744">09-681 8744</a></div>
+            </article>
+
+            <article class="officer-card" data-search="nurul anis suhada binti yazid dg10 pusat kegiatan guru tengkawang hulu terengganu">
+              <div>
+                <div class="officer-top"><span class="officer-no">15</span><span class="officer-grade">DG10</span></div>
+                <h3>Nurul Anis Suhada binti Yazid</h3>
+                <p>Pusat Kegiatan Guru Tengkawang, D/a SK Tengkawang, 21700 Kuala Berang, Hulu Terengganu</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6096872144">09-687 2144</a></div>
+            </article>
+
+            <article class="officer-card" data-search="suzihan binti sulaiman dg10 pusat kegiatan guru seri dungun">
+              <div>
+                <div class="officer-top"><span class="officer-no">16</span><span class="officer-grade">DG10</span></div>
+                <h3>Suzihan binti Sulaiman</h3>
+                <p>Pusat Kegiatan Guru Seri Dungun, D/a SMK Seri Dungun, 23000 Dungun</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098422644">09-842 2644</a></div>
+            </article>
+
+            <article class="officer-card" data-search="rusli bin mat nor dg12 pusat kegiatan guru paka dungun">
+              <div>
+                <div class="officer-top"><span class="officer-no">17</span><span class="officer-grade">DG12</span></div>
+                <h3>Rusli bin Mat Nor</h3>
+                <p>Pusat Kegiatan Guru Paka, D/a SK Paka III, 23100 Paka, Dungun</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098286944">09-828 6944</a></div>
+            </article>
+
+            <article class="officer-card" data-search="namizam bin ngah dg10 pusat kegiatan guru bukit besi dungun">
+              <div>
+                <div class="officer-top"><span class="officer-no">18</span><span class="officer-grade">DG10</span></div>
+                <h3>Namizam bin Ngah</h3>
+                <p>Pusat Kegiatan Guru Bukit Besi, D/a SK Bukit Besi, 23200 Bukit Besi, Dungun</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098337229">09-833 7229</a></div>
+            </article>
+
+            <article class="officer-card" data-search="muhammad nazreen bin mazlan dg10 pusat kegiatan guru pulau serai dungun">
+              <div>
+                <div class="officer-top"><span class="officer-no">19</span><span class="officer-grade">DG10</span></div>
+                <h3>Muhammad Nazreen bin Mazlan</h3>
+                <p>Pusat Kegiatan Guru Pulau Serai, D/a SK Kompleks Rantau Abang, 23000 Dungun</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098422744">09-842 2744</a></div>
+            </article>
+
+            <article class="officer-card" data-search="wan nur herlienie binti wan muhd aminuddin dg12 pusat kegiatan guru binjai kemaman">
+              <div>
+                <div class="officer-top"><span class="officer-no">20</span><span class="officer-grade">DG12</span></div>
+                <h3>Wan Nur Herlienie binti Wan Muhd Aminuddin</h3>
+                <p>Pusat Kegiatan Guru Binjai, D/a SK Binjai, 24200 Kemaman</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098503146">09-850 3146</a></div>
+            </article>
+
+            <article class="officer-card" data-search="juhari bin ibrahim dg12 pusat kegiatan guru kemasek kemaman">
+              <div>
+                <div class="officer-top"><span class="officer-no">21</span><span class="officer-grade">DG12</span></div>
+                <h3>Juhari bin Ibrahim</h3>
+                <p>Pusat Kegiatan Guru Kemasek, D/a SK Kemasek, 24200 Kemaman</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098662244">09-866 2244</a></div>
+            </article>
+
+            <article class="officer-card" data-search="muhamad suhairi bin yahaya dg12 pusat kegiatan guru cheneh baru kemaman">
+              <div>
+                <div class="officer-top"><span class="officer-no">22</span><span class="officer-grade">DG12</span></div>
+                <h3>Muhamad Suhairi bin Yahaya</h3>
+                <p>Pusat Kegiatan Guru Cheneh Baru, D/a SK Cheneh Baru I, 24000 Kemaman</p>
+              </div>
+              <div class="officer-contact"><a href="tel:+6098734044">09-873 4044</a></div>
+            </article>
+          </div>
+
+          <div class="empty-state" id="officerEmpty">Tiada rekod sepadan. Cuba cari menggunakan nama, daerah, lokasi atau gred.</div>
         </div>
       </section>
 
@@ -1021,7 +1394,7 @@
               <h2>Pengumuman Terkini</h2>
               <ul class="announcement-list">
                 <li>Portal TERAFECTA 2026 telah dibuka untuk rujukan dan penyertaan.</li>
-                <li>Senarai Pegawai USTP 2026 boleh diakses melalui pautan Google Sheet di bahagian Pautan Utama.</li>
+                <li>Direktori Pegawai USTP 2026 kini boleh disemak terus dalam laman ini.</li>
                 <li>Portal Analitik Pertandingan Digital telah dibuka.</li>
                 <li>Pautan program akan dikemaskini dari semasa ke semasa.</li>
               </ul>
@@ -1065,5 +1438,26 @@
         <span>Hab digital rasmi untuk pautan dan perkhidmatan berkaitan.</span>
       </div>
     </footer>
+    <script>
+      const officerSearch = document.getElementById("officerSearch");
+      const officerCards = [...document.querySelectorAll(".officer-card")];
+      const officerCount = document.getElementById("officerCount");
+      const officerEmpty = document.getElementById("officerEmpty");
+
+      officerSearch?.addEventListener("input", () => {
+        const query = officerSearch.value.trim().toLowerCase();
+        let visible = 0;
+
+        officerCards.forEach((card) => {
+          const haystack = card.dataset.search || card.textContent.toLowerCase();
+          const match = !query || haystack.includes(query);
+          card.hidden = !match;
+          if (match) visible += 1;
+        });
+
+        officerCount.textContent = visible;
+        officerEmpty.style.display = visible ? "none" : "block";
+      });
+    </script>
   </body>
 </html>
