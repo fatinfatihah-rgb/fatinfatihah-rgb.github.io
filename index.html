@@ -25,6 +25,8 @@
         --green: #3f9d54;
         --gold: #c58a1c;
         --rose: #a33d4f;
+        --blue: #4ea8ff;
+        --violet: #8f7cff;
         --cyan: #67dcc8;
         --deep: #091321;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -44,6 +46,8 @@
         margin: 0;
         min-width: 320px;
         background:
+          radial-gradient(circle at 12% 10%, rgba(78, 168, 255, 0.18), transparent 28rem),
+          radial-gradient(circle at 86% 4%, rgba(103, 220, 200, 0.16), transparent 30rem),
           linear-gradient(rgba(103, 220, 200, 0.045) 1px, transparent 1px),
           linear-gradient(90deg, rgba(103, 220, 200, 0.035) 1px, transparent 1px),
           #07111f;
@@ -163,8 +167,9 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 78% 22%, rgba(103, 220, 200, 0.28), transparent 30%),
-          linear-gradient(90deg, rgba(6, 18, 33, 0.96) 0%, rgba(6, 18, 33, 0.78) 42%, rgba(6, 18, 33, 0.22) 78%),
+          radial-gradient(circle at 78% 22%, rgba(103, 220, 200, 0.32), transparent 30%),
+          radial-gradient(circle at 30% 70%, rgba(78, 168, 255, 0.18), transparent 26%),
+          linear-gradient(90deg, rgba(6, 18, 33, 0.98) 0%, rgba(6, 18, 33, 0.78) 45%, rgba(6, 18, 33, 0.24) 80%),
           url("assets/hero-sstp-terengganu.png") center / cover no-repeat;
       }
 
@@ -186,7 +191,7 @@
         margin: 0 auto;
         display: grid;
         gap: 34px;
-        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.46fr);
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.48fr);
         padding: 128px 0 90px;
       }
 
@@ -232,6 +237,19 @@
           linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
           rgba(8, 18, 32, 0.72);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+      }
+
+      .hero-panel-heading {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        padding: 0 2px 4px;
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 800;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .hero-panel div {
@@ -282,6 +300,12 @@
         color: #ffffff;
       }
 
+      .button.tertiary {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.07);
+        color: #ffffff;
+      }
+
       .mobile-quick {
         display: none;
       }
@@ -320,10 +344,11 @@
 
       .section.digital-band {
         background:
+          radial-gradient(circle at 12% 16%, rgba(78, 168, 255, 0.13), transparent 27%),
           linear-gradient(rgba(103, 220, 200, 0.07) 1px, transparent 1px),
           linear-gradient(90deg, rgba(103, 220, 200, 0.05) 1px, transparent 1px),
           #0b1422;
-        background-size: 72px 72px;
+        background-size: auto, 72px 72px, 72px 72px, auto;
         color: #ffffff;
       }
 
@@ -363,12 +388,12 @@
 
       .link-grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
       }
 
       .link-card {
-        min-height: 210px;
+        min-height: 236px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -379,6 +404,7 @@
           linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.045);
         box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        transition: transform .18s ease, border-color .18s ease, background .18s ease;
       }
 
       .link-card:hover {
@@ -398,6 +424,37 @@
         margin: 12px 0 0;
         color: rgba(236, 250, 252, 0.68);
         line-height: 1.55;
+      }
+
+      .link-card.featured {
+        grid-column: span 2;
+        min-height: 260px;
+        background:
+          radial-gradient(circle at 86% 18%, rgba(197, 138, 28, 0.28), transparent 30%),
+          linear-gradient(135deg, rgba(247, 201, 72, 0.2), rgba(255, 255, 255, 0.05)),
+          rgba(255, 255, 255, 0.055);
+        border-color: rgba(247, 201, 72, 0.32);
+      }
+
+      .link-card.featured strong {
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        line-height: 1.05;
+      }
+
+      .card-meta {
+        display: inline-flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .mini-tag {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.8rem;
+        font-weight: 800;
       }
 
       .chip {
@@ -424,6 +481,14 @@
 
       .chip.rose {
         background: var(--rose);
+      }
+
+      .chip.blue {
+        background: var(--blue);
+      }
+
+      .chip.violet {
+        background: var(--violet);
       }
 
       .feature {
@@ -693,6 +758,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .link-card.featured {
+          grid-column: span 2;
+        }
+
         .hero-panel {
           align-self: start;
           max-width: 520px;
@@ -746,6 +815,10 @@
         .stats,
         .hero-panel {
           grid-template-columns: 1fr;
+        }
+
+        .link-card.featured {
+          grid-column: auto;
         }
 
         .button {
@@ -806,6 +879,7 @@
         </a>
         <div class="navlinks">
           <a href="#pautan">Pautan</a>
+          <a href="https://terafecta-2026.sstp-terengganu.net" target="_blank" rel="noreferrer">TERAFECTA</a>
           <a href="https://digitalnexus.sstp-terengganu.net" target="_blank" rel="noreferrer">Digital Nexus</a>
           <a href="#peranan">Peranan</a>
           <a href="#kemaskini">Kemaskini</a>
@@ -820,42 +894,57 @@
           <div class="hero-copy">
             <p class="eyebrow">Hab Digital Rasmi</p>
             <h1>SSTP Terengganu</h1>
-            <p class="lead">Pusat pautan rasmi untuk portal, hebahan, program dan perkhidmatan digital berkaitan SSTP Terengganu.</p>
+            <p class="lead">Pintu masuk rasmi untuk portal, dashboard, program, dokumen dan perkhidmatan digital SSTP Terengganu. Satu alamat untuk akses pantas warga pendidikan negeri.</p>
             <div class="hero-actions">
-              <a class="button primary" href="https://digitalnexus.sstp-terengganu.net" target="_blank" rel="noreferrer">Buka Digital Nexus</a>
-              <a class="button secondary" href="https://portal.sstp-terengganu.net" target="_blank" rel="noreferrer">Portal Analitik</a>
+              <a class="button primary" href="https://terafecta-2026.sstp-terengganu.net" target="_blank" rel="noreferrer">TERAFECTA 2026</a>
+              <a class="button secondary" href="https://digitalnexus.sstp-terengganu.net" target="_blank" rel="noreferrer">Digital Nexus</a>
+              <a class="button tertiary" href="https://portal.sstp-terengganu.net" target="_blank" rel="noreferrer">Portal Analitik</a>
             </div>
           </div>
           <div class="hero-panel" aria-label="Ringkasan akses digital SSTP">
+            <span class="hero-panel-heading">Akses utama <span>2026</span></span>
             <div>
               <strong>01</strong>
-              <span>Portal negeri untuk bahan PdP, dashboard dan rekod digital.</span>
+              <span>TERAFECTA 2026, program, penyertaan dan hebahan rasmi.</span>
             </div>
             <div>
               <strong>02</strong>
-              <span>Analitik, pertandingan, hebahan dan pautan perkhidmatan.</span>
+              <span>Dashboard, analitik, rekod dan pautan perkhidmatan digital.</span>
             </div>
             <div>
               <strong>03</strong>
-              <span>Satu domain rasmi untuk akses warga pendidikan Terengganu.</span>
+              <span>Dokumen kerja dan senarai pegawai untuk rujukan pantas.</span>
             </div>
           </div>
         </div>
       </section>
 
       <div class="mobile-quick" aria-label="Akses pantas mobile">
-        <a class="button primary" href="https://digitalnexus.sstp-terengganu.net" target="_blank" rel="noreferrer">Digital Nexus</a>
-        <a class="button secondary" href="https://portal.sstp-terengganu.net" target="_blank" rel="noreferrer">Portal Analitik</a>
+        <a class="button primary" href="https://terafecta-2026.sstp-terengganu.net" target="_blank" rel="noreferrer">TERAFECTA</a>
+        <a class="button secondary" href="#pautan">Semua Pautan</a>
       </div>
 
       <section class="section digital-band" id="pautan">
         <div class="wrap">
           <div class="section-head">
-            <h2>Pautan Utama</h2>
-            <p class="section-note">Semua laman penting boleh dikumpulkan di sini supaya pengguna hanya perlu ingat satu alamat domain rasmi.</p>
+            <h2>Pautan Utama SSTP</h2>
+            <p class="section-note">Akses rasmi untuk program, dashboard, rekod, hebahan dan dokumen kerja SSTP Terengganu.</p>
           </div>
 
           <div class="link-grid">
+            <a class="link-card featured" href="https://terafecta-2026.sstp-terengganu.net" target="_blank" rel="noreferrer">
+              <span class="chip gold">Program Utama</span>
+              <div>
+                <strong>TERAFECTA 2026</strong>
+                <p>Portal penyertaan TERAFECTA 60 Seconds Promo Video Challenge 2026, termasuk syarat pertandingan, bahan rasmi dan borang penghantaran video.</p>
+                <span class="card-meta">
+                  <span class="mini-tag">Penyertaan</span>
+                  <span class="mini-tag">Poster</span>
+                  <span class="mini-tag">Bahan rasmi</span>
+                </span>
+              </div>
+            </a>
+
             <a class="link-card" href="https://digitalnexus.sstp-terengganu.net" target="_blank" rel="noreferrer">
               <span class="chip teal">Baharu</span>
               <div>
@@ -872,27 +961,27 @@
               </div>
             </a>
 
-            <a class="link-card" href="#kemaskini">
-              <span class="chip green">Hub</span>
+            <a class="link-card" href="https://docs.google.com/spreadsheets/d/1srpDD3Xh4_N1AAZDY6Y36sAjszdDO_D9hZVEtqFg2a8/edit?usp=sharing" target="_blank" rel="noreferrer">
+              <span class="chip blue">Google Sheet</span>
               <div>
-                <strong>Hebahan Program</strong>
-                <p>Ruang untuk pautan hebahan, jadual dan maklumat program rasmi.</p>
+                <strong>Senarai Pegawai USTP 2026</strong>
+                <p>Rujukan senarai pegawai USTP untuk semakan, penyelarasan dan kegunaan kerja rasmi.</p>
               </div>
             </a>
 
             <a class="link-card" href="#kemaskini">
-              <span class="chip gold">Borang</span>
+              <span class="chip violet">Hub</span>
               <div>
-                <strong>Pendaftaran dan Maklum Balas</strong>
-                <p>Kumpulkan pautan borang pendaftaran, penyertaan atau maklum balas.</p>
+                <strong>Hebahan Program</strong>
+                <p>Ruang rujukan untuk pautan hebahan, jadual dan maklumat program rasmi.</p>
               </div>
             </a>
 
             <a class="link-card" href="#kemaskini">
               <span class="chip rose">Info</span>
               <div>
-                <strong>Galeri dan Dokumen</strong>
-                <p>Tempat untuk pautan galeri, dokumen, panduan dan bahan rujukan.</p>
+                <strong>Dokumen dan Bahan</strong>
+                <p>Tempat untuk pautan dokumen, panduan, galeri dan bahan rujukan SSTP.</p>
               </div>
             </a>
           </div>
@@ -904,21 +993,21 @@
           <div class="feature-media" role="img" aria-label="Visual hab digital SSTP Terengganu"></div>
           <div class="feature-copy">
             <p class="eyebrow">Satu Domain, Banyak Akses</p>
-            <h2>Landing page rasmi untuk semua laman SSTP.</h2>
-            <p>Halaman ini direka sebagai pintu masuk yang ringkas, kemas dan mudah dikembangkan. Apabila ada website baharu, pautan boleh ditambah terus tanpa mengubah struktur domain utama.</p>
+            <h2>Hab rasmi yang mudah dikembangkan.</h2>
+            <p>Halaman ini menghimpunkan akses penting SSTP dalam satu paparan yang kemas. Apabila ada program, dashboard atau dokumen baharu, pautan boleh ditambah terus tanpa mengubah struktur domain utama.</p>
 
             <div class="stats" aria-label="Ringkasan fungsi laman">
               <div class="stat">
                 <b>01</b>
-                <span>Hab portal dan sistem</span>
+                <span>Program dan penyertaan</span>
               </div>
               <div class="stat">
                 <b>02</b>
-                <span>Ruang hebahan rasmi</span>
+                <span>Dashboard dan analitik</span>
               </div>
               <div class="stat">
                 <b>03</b>
-                <span>Pautan program dan dokumen</span>
+                <span>Dokumen kerja rasmi</span>
               </div>
             </div>
           </div>
@@ -931,12 +1020,13 @@
             <div>
               <h2>Pengumuman Terkini</h2>
               <ul class="announcement-list">
+                <li>Portal TERAFECTA 2026 telah dibuka untuk rujukan dan penyertaan.</li>
+                <li>Senarai Pegawai USTP 2026 boleh diakses melalui pautan Google Sheet di bahagian Pautan Utama.</li>
                 <li>Portal Analitik Pertandingan Digital telah dibuka.</li>
                 <li>Pautan program akan dikemaskini dari semasa ke semasa.</li>
-                <li>Hubungi SSTP untuk pertanyaan rasmi.</li>
               </ul>
             </div>
-            <a class="button primary" href="https://digitalnexus.sstp-terengganu.net" target="_blank" rel="noreferrer">Buka Digital Nexus</a>
+            <a class="button primary" href="https://terafecta-2026.sstp-terengganu.net" target="_blank" rel="noreferrer">Buka TERAFECTA</a>
           </div>
         </div>
       </section>
