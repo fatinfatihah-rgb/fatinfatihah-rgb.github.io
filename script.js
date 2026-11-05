@@ -19,27 +19,8 @@ document.addEventListener('keydown', event => {
   }
 });
 
-// Switch between the two directories; arrow keys follow the tab pattern.
-const tabs = [...document.querySelectorAll('[role="tab"]')];
-function activateTab(tab) {
-  tabs.forEach(item => {
-    const selected = item === tab;
-    item.setAttribute('aria-selected', String(selected));
-    item.tabIndex = selected ? 0 : -1;
-    document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
-  });
-}
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => activateTab(tab));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
-    if (event.key === 'ArrowLeft') next = tabs[(index + tabs.length - 1) % tabs.length];
-    if (event.key === 'Home') next = tabs[0];
-    if (event.key === 'End') next = tabs[tabs.length - 1];
-    if (next) { event.preventDefault(); activateTab(next); next.focus(); }
-  });
-});
+
+if (document.getElementById('ustpPanel')) {
 const officerSearch = document.getElementById('officerSearch');
 const districtFilter = document.getElementById('districtFilter');
 const groups = [...document.querySelectorAll('.district-group')];
@@ -71,6 +52,9 @@ function filterOfficers() {
 officerSearch.addEventListener('input', filterOfficers);
 districtFilter.addEventListener('change', filterOfficers);
 filterOfficers();
+
+}
+if (document.getElementById('sstpPanel')) {
 // Render directory fields as text.
 const sstpRecords = window.SSTP_CONTENT?.sstpOfficers || [];
 const sstpGrid = document.getElementById('sstpGrid');
@@ -101,3 +85,5 @@ sstpSearch.addEventListener('input', () => {
   document.getElementById('sstpCount').textContent = count;
   document.getElementById('sstpEmpty').hidden = count > 0;
 });
+
+}
