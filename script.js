@@ -71,18 +71,17 @@ function filterOfficers() {
 officerSearch.addEventListener('input', filterOfficers);
 districtFilter.addEventListener('change', filterOfficers);
 filterOfficers();
-// Render future approved SSTP records as text, never as HTML.
+// Render directory fields as text.
 const sstpRecords = window.SSTP_CONTENT?.sstpOfficers || [];
 const sstpGrid = document.getElementById('sstpGrid');
 sstpRecords.forEach(person => {
   const card = document.createElement('article'); card.className = 'officer-card';
   const name = document.createElement('h3'); name.textContent = person.name;
-  const role = document.createElement('p'); role.textContent = person.role;
-  const unit = document.createElement('p'); unit.textContent = person.unit;
-  card.append(name, role, unit);
+  const grade = document.createElement('span'); grade.className = 'officer-grade'; grade.textContent = person.grade ? 'Gred ' + person.grade : '';
+  card.append(name, grade);
   const contacts = document.createElement('div'); contacts.className = 'officer-contact';
   if (person.phone && /^[+\d\s()-]+$/.test(person.phone)) {
-    const phone = document.createElement('a'); phone.href = 'tel:' + person.phone.replace(/[^+\d]/g, ''); phone.textContent = person.phone; contacts.append(phone);
+    const phone = document.createElement('a'); phone.href = 'tel:' + person.phone.replace(/[^+\d]/g, '').replace(/^0/, '+60'); phone.textContent = person.phone; contacts.append(phone);
   }
   if (person.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(person.email)) {
     const email = document.createElement('a'); email.href = 'mailto:' + person.email; email.textContent = person.email; contacts.append(email);
@@ -90,3 +89,15 @@ sstpRecords.forEach(person => {
   card.append(contacts); sstpGrid.append(card);
 });
 document.getElementById('sstpPending').hidden = sstpRecords.length > 0;
+
+const sstpSearch = document.getElementById('sstpSearch');
+sstpSearch.addEventListener('input', () => {
+  const query = sstpSearch.value.trim().toLocaleLowerCase('ms');
+  let count = 0;
+  sstpGrid.querySelectorAll('.officer-card').forEach(card => {
+    card.hidden = !card.textContent.toLocaleLowerCase('ms').includes(query);
+    if (!card.hidden) count++;
+  });
+  document.getElementById('sstpCount').textContent = count;
+  document.getElementById('sstpEmpty').hidden = count > 0;
+});
